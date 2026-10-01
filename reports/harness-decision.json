@@ -1,0 +1,12 @@
+{
+  "promoted": false,
+  "reasons": [
+    "insufficient_evaluation_sample",
+    "false_rejection_regression",
+    "no_detection_gain"
+  ],
+  "min_per_class": 30,
+  "scope": "Operational gate only; not a statistical superiority claim.",
+  "source": "task-transfer-comparison.json",
+  "production_behavior": "Generated-case failures produce review_required, never automatic rejection."
+}

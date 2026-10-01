@@ -1,0 +1,532 @@
+{
+  "stage": "development_execution_pilot",
+  "image": "python@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f",
+  "dataset_commit": "6d43fb980f9fee3c892a914eda09951f772ad10d",
+  "dataset_sha256": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef",
+  "selection": "first five tasks; canonical and return-None mutant per task",
+  "tasks": [
+    {
+      "id": "HumanEval/0",
+      "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0], 0.5],\n      \"expected\": false\n    },\n    {\n      \"args\": [[1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3],\n      \"expected\": true\n    },\n    {\n      \"args\": [[1.0, 1.1], 0.2],\n      \"expected\": true\n    },\n    {\n      \"args\": [[1.0, 1.1], 0.05],\n      \"expected\": false\n    },\n    {\n      \"args\": [[5.0], 1.0],\n      \"expected\": false\n    },\n    {\n      \"args\": [[1.0, 3.0, 5.0, 7.0], 1.5],\n      \"expected\": false\n    }\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 191,
+        "total_tokens": 405,
+        "completion_tokens": 214,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "finish_reason": "stop",
+      "ground_truth": [
+        {
+          "status": "pass"
+        },
+        {
+          "status": "fail"
+        }
+      ],
+      "candidates": [
+        {
+          "kind": "canonical",
+          "candidate_sha256": "40560c20a6f56877abd19fa87e39aa5d43f3bff6b7417c68e11fc772c096a6c9",
+          "verdict": "insufficient_evidence",
+          "execution": {
+            "status": "pass",
+            "cases": [
+              {
+                "pass": true,
+                "actual": false,
+                "expected": false
+              },
+              {
+                "pass": true,
+                "actual": true,
+                "expected": true
+              },
+              {
+                "pass": true,
+                "actual": true,
+                "expected": true
+              },
+              {
+                "pass": true,
+                "actual": false,
+                "expected": false
+              },
+              {
+                "pass": true,
+                "actual": false,
+                "expected": false
+              },
+              {
+                "pass": true,
+                "actual": false,
+                "expected": false
+              }
+            ]
+          }
+        },
+        {
+          "kind": "mutant",
+          "candidate_sha256": "d74b0b83f40d1d1c9b83a3408c3c8e07e43a3ef61b5bdd0634fb4b87bb7cbf3e",
+          "verdict": "reject",
+          "execution": {
+            "status": "fail",
+            "cases": [
+              {
+                "pass": false,
+                "actual": null,
+                "expected": false
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": true
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": true
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": false
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": false
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "HumanEval/1",
+      "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [\"( ) (( )) (( )( ))\"],\n      \"expected\": [\"()\", \"(())\", \"(()())\"]\n    },\n    {\n      \"args\": [\"()()()\"],\n      \"expected\": [\"()\", \"()\", \"()\"]\n    },\n    {\n      \"args\": [\"((()))\"],\n      \"expected\": [\"((()))\"]\n    },\n    {\n      \"args\": [\"( ) ( ) ( )\"],\n      \"expected\": [\"()\", \"()\", \"()\"]\n    },\n    {\n      \"args\": [\"() (()) (()())\"],\n      \"expected\": [\"()\", \"(())\", \"(()())\"]\n    },\n    {\n      \"args\": [\"   (  )   ( ( ) )   \"],\n      \"expected\": [\"()\", \"(())\"]\n    }\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 182,
+        "total_tokens": 348,
+        "completion_tokens": 166,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "finish_reason": "stop",
+      "ground_truth": [
+        {
+          "status": "pass"
+        },
+        {
+          "status": "fail"
+        }
+      ],
+      "candidates": [
+        {
+          "kind": "canonical",
+          "candidate_sha256": "464c1465d5dbdf81777dab90f452cf22371867ee1349fed5d983ef0492c1f621",
+          "verdict": "insufficient_evidence",
+          "execution": {
+            "status": "pass",
+            "cases": [
+              {
+                "pass": true,
+                "actual": [
+                  "()",
+                  "(())",
+                  "(()())"
+                ],
+                "expected": [
+                  "()",
+                  "(())",
+                  "(()())"
+                ]
+              },
+              {
+                "pass": true,
+                "actual": [
+                  "()",
+                  "()",
+                  "()"
+                ],
+                "expected": [
+                  "()",
+                  "()",
+                  "()"
+                ]
+              },
+              {
+                "pass": true,
+                "actual": [
+                  "((()))"
+                ],
+                "expected": [
+                  "((()))"
+                ]
+              },
+              {
+                "pass": true,
+                "actual": [
+                  "()",
+                  "()",
+                  "()"
+                ],
+                "expected": [
+                  "()",
+                  "()",
+                  "()"
+                ]
+              },
+              {
+                "pass": true,
+                "actual": [
+                  "()",
+                  "(())",
+                  "(()())"
+                ],
+                "expected": [
+                  "()",
+                  "(())",
+                  "(()())"
+                ]
+              },
+              {
+                "pass": true,
+                "actual": [
+                  "()",
+                  "(())"
+                ],
+                "expected": [
+                  "()",
+                  "(())"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "kind": "mutant",
+          "candidate_sha256": "c94733809ef52aaf82d95ce97d5286c855bb8547077745132d7fba8134b7ea85",
+          "verdict": "reject",
+          "execution": {
+            "status": "fail",
+            "cases": [
+              {
+                "pass": false,
+                "actual": null,
+                "expected": [
+                  "()",
+                  "(())",
+                  "(()())"
+                ]
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": [
+                  "()",
+                  "()",
+                  "()"
+                ]
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": [
+                  "((()))"
+                ]
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": [
+                  "()",
+                  "()",
+                  "()"
+                ]
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": [
+                  "()",
+                  "(())",
+                  "(()())"
+                ]
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": [
+                  "()",
+                  "(())"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "HumanEval/2",
+      "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [3.5],\n      \"expected\": 0.5\n    },\n    {\n      \"args\": [10.99],\n      \"expected\": 0.99\n    },\n    {\n      \"args\": [7.0],\n      \"expected\": 0.0\n    },\n    {\n      \"args\": [0.123],\n      \"expected\": 0.123\n    },\n    {\n      \"args\": [100.001],\n      \"expected\": 0.001\n    }\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 152,
+        "total_tokens": 284,
+        "completion_tokens": 132,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "finish_reason": "stop",
+      "ground_truth": [
+        {
+          "status": "pass"
+        },
+        {
+          "status": "fail"
+        }
+      ],
+      "candidates": [
+        {
+          "kind": "canonical",
+          "candidate_sha256": "c8a85aa4b830d2fd587c6d26141536227265742c90f322fb40363f7a4fb9fab6",
+          "verdict": "insufficient_evidence",
+          "execution": {
+            "status": "pass",
+            "cases": [
+              {
+                "pass": true,
+                "actual": 0.5,
+                "expected": 0.5
+              },
+              {
+                "pass": true,
+                "actual": 0.9900000000000002,
+                "expected": 0.99
+              },
+              {
+                "pass": true,
+                "actual": 0.0,
+                "expected": 0.0
+              },
+              {
+                "pass": true,
+                "actual": 0.123,
+                "expected": 0.123
+              },
+              {
+                "pass": true,
+                "actual": 0.0010000000000047748,
+                "expected": 0.001
+              }
+            ]
+          }
+        },
+        {
+          "kind": "mutant",
+          "candidate_sha256": "12374f94ab30250307ced96f5f84de6cd063c601fa90c4b513903f74c7eba04f",
+          "verdict": "reject",
+          "execution": {
+            "status": "fail",
+            "cases": [
+              {
+                "pass": false,
+                "actual": null,
+                "expected": 0.5
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": 0.99
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": 0.0
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": 0.123
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": 0.001
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "HumanEval/3",
+      "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1, 2, 3]],\n      \"expected\": false\n    },\n    {\n      \"args\": [[1, 2, -4, 5]],\n      \"expected\": true\n    },\n    {\n      \"args\": [[-1, 2, 3]],\n      \"expected\": true\n    },\n    {\n      \"args\": [[0, 0, 0]],\n      \"expected\": false\n    },\n    {\n      \"args\": [[1, -1, 0]],\n      \"expected\": false\n    },\n    {\n      \"args\": [[10, -5, -3, -2]],\n      \"expected\": false\n    }\n  ]\n}",
+      "usage": {
+        "prompt_tokens": 186,
+        "total_tokens": 341,
+        "completion_tokens": 155,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "finish_reason": "stop",
+      "ground_truth": [
+        {
+          "status": "pass"
+        },
+        {
+          "status": "fail"
+        }
+      ],
+      "candidates": [
+        {
+          "kind": "canonical",
+          "candidate_sha256": "1a710a84f86e12ee74b7279afbf9fd53480c1753e133161783c0b84b4999346a",
+          "verdict": "insufficient_evidence",
+          "execution": {
+            "status": "pass",
+            "cases": [
+              {
+                "pass": true,
+                "actual": false,
+                "expected": false
+              },
+              {
+                "pass": true,
+                "actual": true,
+                "expected": true
+              },
+              {
+                "pass": true,
+                "actual": true,
+                "expected": true
+              },
+              {
+                "pass": true,
+                "actual": false,
+                "expected": false
+              },
+              {
+                "pass": true,
+                "actual": false,
+                "expected": false
+              },
+              {
+                "pass": true,
+                "actual": false,
+                "expected": false
+              }
+            ]
+          }
+        },
+        {
+          "kind": "mutant",
+          "candidate_sha256": "97102187a71cd443f5a3b8a750c86fe644165fdb630b7448fe82da74be1b46ea",
+          "verdict": "reject",
+          "execution": {
+            "status": "fail",
+            "cases": [
+              {
+                "pass": false,
+                "actual": null,
+                "expected": false
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": true
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": true
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": false
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": false
+              },
+              {
+                "pass": false,
+                "actual": null,
+                "expected": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "HumanEval/4",
+      "excluded": "ground-truth qualification failed",
+      "ground_truth": [
+        {
+          "status": "pass"
+        },
+        {
+          "status": "error",
+          "type": "TypeError"
+        }
+      ]
+    }
+  ],
+  "scores": {
+    "syntax": {
+      "count": 8,
+      "correct_count": 4,
+      "wrong_count": 4,
+      "detected": 0,
+      "false_rejections": 0,
+      "detection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "detection_wilson95": [
+        0.0,
+        0.4898908364545973
+      ],
+      "false_rejection_wilson95": [
+        0.0,
+        0.4898908364545973
+      ],
+      "verdict_counts": {
+        "insufficient_evidence": 8
+      },
+      "interval_scope": "Descriptive binomial intervals; not repository-clustered inference."
+    },
+    "generated_tests": {
+      "count": 8,
+      "correct_count": 4,
+      "wrong_count": 4,
+      "detected": 4,
+      "false_rejections": 0,
+      "detection_rate": 1.0,
+      "false_rejection_rate": 0.0,
+      "detection_wilson95": [
+        0.5101091635454027,
+        1.0
+      ],
+      "false_rejection_wilson95": [
+        0.0,
+        0.4898908364545973
+      ],
+      "verdict_counts": {
+        "insufficient_evidence": 4,
+        "reject": 4
+      },
+      "interval_scope": "Descriptive binomial intervals; not repository-clustered inference."
+    }
+  }
+}

@@ -1,0 +1,6 @@
+[
+  {"id":"toy-1","split":"development","correct":true,"checks":{"syntax":"pass","contract":"pass"}},
+  {"id":"toy-2","split":"development","correct":true,"checks":{"syntax":"pass","contract":"error"}},
+  {"id":"toy-3","split":"development","correct":false,"checks":{"syntax":"fail","contract":"error"}},
+  {"id":"toy-4","split":"development","correct":false,"checks":{"syntax":"pass","contract":"fail"}}
+]

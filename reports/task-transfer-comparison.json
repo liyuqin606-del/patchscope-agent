@@ -1,0 +1,6095 @@
+{
+  "stage": "public_task_disjoint_transfer_pilot",
+  "parser_version": "full-fence-tolerant-v2",
+  "task_indices": "15:30",
+  "scope": "task-disjoint, not repository-disjoint",
+  "seed_tasks": 15,
+  "calls_per_candidate_condition": 2,
+  "max_output_tokens_per_call": 1200,
+  "model": "qwen3-coder-flash",
+  "image": "python@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f",
+  "selection": "first single comparison/arithmetic mutation in AST breadth-first order; no replacement for exclusions",
+  "conditions": [
+    "fixed",
+    "adaptive"
+  ],
+  "tasks": [
+    {
+      "id": "HumanEval/15",
+      "mutation": "Add->Sub",
+      "runs": [
+        {
+          "candidate": "canonical",
+          "condition": "fixed",
+          "candidate_sha256": "f161678bdb15abc033c648725ba309b043f670f59bcf5b5f46671ce0d0d625f1",
+          "rounds": [
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [0],\n      \"expected\": \"0\"\n    },\n    {\n      \"args\": [5],\n      \"expected\": \"0 1 2 3 4 5\"\n    },\n    {\n      \"args\": [1],\n      \"expected\": \"0 1\"\n    },\n    {\n      \"args\": [10],\n      \"expected\": \"0 1 2 3 4 5 6 7 8 9 10\"\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 269,
+                "total_tokens": 384,
+                "completion_tokens": 115,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    0
+                  ],
+                  "expected": "0"
+                },
+                {
+                  "args": [
+                    5
+                  ],
+                  "expected": "0 1 2 3 4 5"
+                },
+                {
+                  "args": [
+                    1
+                  ],
+                  "expected": "0 1"
+                },
+                {
+                  "args": [
+                    10
+                  ],
+                  "expected": "0 1 2 3 4 5 6 7 8 9 10"
+                }
+              ],
+              "execution": {
+                "status": "pass",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": "0",
+                    "expected": "0"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1 2 3 4 5",
+                    "expected": "0 1 2 3 4 5"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1",
+                    "expected": "0 1"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1 2 3 4 5 6 7 8 9 10",
+                    "expected": "0 1 2 3 4 5 6 7 8 9 10"
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [0],\n      \"expected\": \"0\"\n    },\n    {\n      \"args\": [1],\n      \"expected\": \"0 1\"\n    },\n    {\n      \"args\": [5],\n      \"expected\": \"0 1 2 3 4 5\"\n    },\n    {\n      \"args\": [10],\n      \"expected\": \"0 1 2 3 4 5 6 7 8 9 10\"\n    },\n    {\n      \"args\": [3],\n      \"expected\": \"0 1 2 3\"\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 358,
+                "total_tokens": 501,
+                "completion_tokens": 143,
+                "prompt_tokens_details": {
+                  "cached_tokens": 256
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    0
+                  ],
+                  "expected": "0"
+                },
+                {
+                  "args": [
+                    1
+                  ],
+                  "expected": "0 1"
+                },
+                {
+                  "args": [
+                    5
+                  ],
+                  "expected": "0 1 2 3 4 5"
+                },
+                {
+                  "args": [
+                    10
+                  ],
+                  "expected": "0 1 2 3 4 5 6 7 8 9 10"
+                },
+                {
+                  "args": [
+                    3
+                  ],
+                  "expected": "0 1 2 3"
+                }
+              ],
+              "execution": {
+                "status": "pass",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": "0",
+                    "expected": "0"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1",
+                    "expected": "0 1"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1 2 3 4 5",
+                    "expected": "0 1 2 3 4 5"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1 2 3 4 5 6 7 8 9 10",
+                    "expected": "0 1 2 3 4 5 6 7 8 9 10"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1 2 3",
+                    "expected": "0 1 2 3"
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "insufficient_evidence"
+        },
+        {
+          "candidate": "canonical",
+          "condition": "adaptive",
+          "candidate_sha256": "f161678bdb15abc033c648725ba309b043f670f59bcf5b5f46671ce0d0d625f1",
+          "rounds": [
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [0],\n      \"expected\": \"0\"\n    },\n    {\n      \"args\": [5],\n      \"expected\": \"0 1 2 3 4 5\"\n    },\n    {\n      \"args\": [1],\n      \"expected\": \"0 1\"\n    },\n    {\n      \"args\": [10],\n      \"expected\": \"0 1 2 3 4 5 6 7 8 9 10\"\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 269,
+                "total_tokens": 388,
+                "completion_tokens": 119,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    0
+                  ],
+                  "expected": "0"
+                },
+                {
+                  "args": [
+                    5
+                  ],
+                  "expected": "0 1 2 3 4 5"
+                },
+                {
+                  "args": [
+                    1
+                  ],
+                  "expected": "0 1"
+                },
+                {
+                  "args": [
+                    10
+                  ],
+                  "expected": "0 1 2 3 4 5 6 7 8 9 10"
+                }
+              ],
+              "execution": {
+                "status": "pass",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": "0",
+                    "expected": "0"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1 2 3 4 5",
+                    "expected": "0 1 2 3 4 5"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1",
+                    "expected": "0 1"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1 2 3 4 5 6 7 8 9 10",
+                    "expected": "0 1 2 3 4 5 6 7 8 9 10"
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [0],\n      \"expected\": \"0\"\n    },\n    {\n      \"args\": [5],\n      \"expected\": \"0 1 2 3 4 5\"\n    },\n    {\n      \"args\": [1],\n      \"expected\": \"0 1\"\n    },\n    {\n      \"args\": [10],\n      \"expected\": \"0 1 2 3 4 5 6 7 8 9 10\"\n    },\n    {\n      \"args\": [3],\n      \"expected\": \"0 1 2 3\"\n    },\n    {\n      \"args\": [7],\n      \"expected\": \"0 1 2 3 4 5 6 7\"\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 506,
+                "total_tokens": 677,
+                "completion_tokens": 171,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    0
+                  ],
+                  "expected": "0"
+                },
+                {
+                  "args": [
+                    5
+                  ],
+                  "expected": "0 1 2 3 4 5"
+                },
+                {
+                  "args": [
+                    1
+                  ],
+                  "expected": "0 1"
+                },
+                {
+                  "args": [
+                    10
+                  ],
+                  "expected": "0 1 2 3 4 5 6 7 8 9 10"
+                },
+                {
+                  "args": [
+                    3
+                  ],
+                  "expected": "0 1 2 3"
+                },
+                {
+                  "args": [
+                    7
+                  ],
+                  "expected": "0 1 2 3 4 5 6 7"
+                }
+              ],
+              "execution": {
+                "status": "pass",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": "0",
+                    "expected": "0"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1 2 3 4 5",
+                    "expected": "0 1 2 3 4 5"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1",
+                    "expected": "0 1"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1 2 3 4 5 6 7 8 9 10",
+                    "expected": "0 1 2 3 4 5 6 7 8 9 10"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1 2 3",
+                    "expected": "0 1 2 3"
+                  },
+                  {
+                    "pass": true,
+                    "actual": "0 1 2 3 4 5 6 7",
+                    "expected": "0 1 2 3 4 5 6 7"
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "insufficient_evidence"
+        },
+        {
+          "candidate": "mutant",
+          "condition": "fixed",
+          "candidate_sha256": "1c49a0313583978107aeabcbc05f3360a5f5d7d053fa0695b71dd358d2c7497b",
+          "rounds": [
+            {
+              "raw_model_content": "{\"cases\":[{\"args\":[0],\"expected\":\"0\"},{\"args\":[5],\"expected\":\"0 1 2 3 4 5\"},{\"args\":[1],\"expected\":\"0 1\"},{\"args\":[3],\"expected\":\"0 1 2 3\"}]}",
+              "usage": {
+                "prompt_tokens": 265,
+                "total_tokens": 319,
+                "completion_tokens": 54,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    0
+                  ],
+                  "expected": "0"
+                },
+                {
+                  "args": [
+                    5
+                  ],
+                  "expected": "0 1 2 3 4 5"
+                },
+                {
+                  "args": [
+                    1
+                  ],
+                  "expected": "0 1"
+                },
+                {
+                  "args": [
+                    3
+                  ],
+                  "expected": "0 1 2 3"
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": "",
+                    "expected": "0"
+                  },
+                  {
+                    "pass": false,
+                    "actual": "0 1 2 3",
+                    "expected": "0 1 2 3 4 5"
+                  },
+                  {
+                    "pass": false,
+                    "actual": "",
+                    "expected": "0 1"
+                  },
+                  {
+                    "pass": false,
+                    "actual": "0 1",
+                    "expected": "0 1 2 3"
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [0],\n      \"expected\": \"0\"\n    },\n    {\n      \"args\": [5],\n      \"expected\": \"0 1 2 3 4 5\"\n    },\n    {\n      \"args\": [1],\n      \"expected\": \"0 1\"\n    },\n    {\n      \"args\": [3],\n      \"expected\": \"0 1 2 3\"\n    },\n    {\n      \"args\": [10],\n      \"expected\": \"0 1 2 3 4 5 6 7 8 9 10\"\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 338,
+                "total_tokens": 481,
+                "completion_tokens": 143,
+                "prompt_tokens_details": {
+                  "cached_tokens": 256
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    0
+                  ],
+                  "expected": "0"
+                },
+                {
+                  "args": [
+                    5
+                  ],
+                  "expected": "0 1 2 3 4 5"
+                },
+                {
+                  "args": [
+                    1
+                  ],
+                  "expected": "0 1"
+                },
+                {
+                  "args": [
+                    3
+                  ],
+                  "expected": "0 1 2 3"
+                },
+                {
+                  "args": [
+                    10
+                  ],
+                  "expected": "0 1 2 3 4 5 6 7 8 9 10"
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": "",
+                    "expected": "0"
+                  },
+                  {
+                    "pass": false,
+                    "actual": "0 1 2 3",
+                    "expected": "0 1 2 3 4 5"
+                  },
+                  {
+                    "pass": false,
+                    "actual": "",
+                    "expected": "0 1"
+                  },
+                  {
+                    "pass": false,
+                    "actual": "0 1",
+                    "expected": "0 1 2 3"
+                  },
+                  {
+                    "pass": false,
+                    "actual": "0 1 2 3 4 5 6 7 8",
+                    "expected": "0 1 2 3 4 5 6 7 8 9 10"
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        },
+        {
+          "candidate": "mutant",
+          "condition": "adaptive",
+          "candidate_sha256": "1c49a0313583978107aeabcbc05f3360a5f5d7d053fa0695b71dd358d2c7497b",
+          "rounds": [
+            {
+              "raw_model_content": "{\"cases\":[{\"args\":[0],\"expected\":\"0\"},{\"args\":[5],\"expected\":\"0 1 2 3 4 5\"},{\"args\":[1],\"expected\":\"0 1\"},{\"args\":[3],\"expected\":\"0 1 2 3\"}]}",
+              "usage": {
+                "prompt_tokens": 265,
+                "total_tokens": 319,
+                "completion_tokens": 54,
+                "prompt_tokens_details": {
+                  "cached_tokens": 256
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    0
+                  ],
+                  "expected": "0"
+                },
+                {
+                  "args": [
+                    5
+                  ],
+                  "expected": "0 1 2 3 4 5"
+                },
+                {
+                  "args": [
+                    1
+                  ],
+                  "expected": "0 1"
+                },
+                {
+                  "args": [
+                    3
+                  ],
+                  "expected": "0 1 2 3"
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": "",
+                    "expected": "0"
+                  },
+                  {
+                    "pass": false,
+                    "actual": "0 1 2 3",
+                    "expected": "0 1 2 3 4 5"
+                  },
+                  {
+                    "pass": false,
+                    "actual": "",
+                    "expected": "0 1"
+                  },
+                  {
+                    "pass": false,
+                    "actual": "0 1",
+                    "expected": "0 1 2 3"
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [0],\n      \"expected\": \"0\"\n    },\n    {\n      \"args\": [5],\n      \"expected\": \"0 1 2 3 4 5\"\n    },\n    {\n      \"args\": [1],\n      \"expected\": \"0 1\"\n    },\n    {\n      \"args\": [3],\n      \"expected\": \"0 1 2 3\"\n    },\n    {\n      \"args\": [10],\n      \"expected\": \"0 1 2 3 4 5 6 7 8 9 10\"\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 442,
+                "total_tokens": 585,
+                "completion_tokens": 143,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    0
+                  ],
+                  "expected": "0"
+                },
+                {
+                  "args": [
+                    5
+                  ],
+                  "expected": "0 1 2 3 4 5"
+                },
+                {
+                  "args": [
+                    1
+                  ],
+                  "expected": "0 1"
+                },
+                {
+                  "args": [
+                    3
+                  ],
+                  "expected": "0 1 2 3"
+                },
+                {
+                  "args": [
+                    10
+                  ],
+                  "expected": "0 1 2 3 4 5 6 7 8 9 10"
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": "",
+                    "expected": "0"
+                  },
+                  {
+                    "pass": false,
+                    "actual": "0 1 2 3",
+                    "expected": "0 1 2 3 4 5"
+                  },
+                  {
+                    "pass": false,
+                    "actual": "",
+                    "expected": "0 1"
+                  },
+                  {
+                    "pass": false,
+                    "actual": "0 1",
+                    "expected": "0 1 2 3"
+                  },
+                  {
+                    "pass": false,
+                    "actual": "0 1 2 3 4 5 6 7 8",
+                    "expected": "0 1 2 3 4 5 6 7 8 9 10"
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        }
+      ],
+      "qualification": [
+        {
+          "status": "pass"
+        },
+        {
+          "status": "fail",
+          "exception": "AssertionError"
+        }
+      ]
+    },
+    {
+      "id": "HumanEval/16",
+      "mutation": null,
+      "runs": [],
+      "excluded": "no eligible operator"
+    },
+    {
+      "id": "HumanEval/17",
+      "mutation": null,
+      "runs": [],
+      "excluded": "no eligible operator"
+    },
+    {
+      "id": "HumanEval/18",
+      "mutation": "Add->Sub",
+      "runs": [
+        {
+          "candidate": "canonical",
+          "condition": "fixed",
+          "candidate_sha256": "6bbf98aacc9fc764b75ea37319fc68fef68453dfd5e67703b6894379a97e039c",
+          "rounds": [
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [\"\", \"a\"],\n      \"expected\": 0\n    },\n    {\n      \"args\": [\"aaa\", \"a\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"aaaa\", \"aa\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"abababab\", \"aba\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"hello\", \"ll\"],\n      \"expected\": 1\n    },\n    {\n      \"args\": [\"aaa\", \"aa\"],\n      \"expected\": 2\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 342,
+                "total_tokens": 479,
+                "completion_tokens": 137,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    "",
+                    "a"
+                  ],
+                  "expected": 0
+                },
+                {
+                  "args": [
+                    "aaa",
+                    "a"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "aaaa",
+                    "aa"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "abababab",
+                    "aba"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "hello",
+                    "ll"
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    "aaa",
+                    "aa"
+                  ],
+                  "expected": 2
+                }
+              ],
+              "execution": {
+                "status": "pass",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": 0,
+                    "expected": 0
+                  },
+                  {
+                    "pass": true,
+                    "actual": 3,
+                    "expected": 3
+                  },
+                  {
+                    "pass": true,
+                    "actual": 3,
+                    "expected": 3
+                  },
+                  {
+                    "pass": true,
+                    "actual": 3,
+                    "expected": 3
+                  },
+                  {
+                    "pass": true,
+                    "actual": 1,
+                    "expected": 1
+                  },
+                  {
+                    "pass": true,
+                    "actual": 2,
+                    "expected": 2
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [\"\", \"a\"],\n      \"expected\": 0\n    },\n    {\n      \"args\": [\"aaa\", \"a\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"aaaa\", \"aa\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"abababab\", \"aba\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"hello\", \"ll\"],\n      \"expected\": 1\n    },\n    {\n      \"args\": [\"aaa\", \"aa\"],\n      \"expected\": 2\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 441,
+                "total_tokens": 578,
+                "completion_tokens": 137,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    "",
+                    "a"
+                  ],
+                  "expected": 0
+                },
+                {
+                  "args": [
+                    "aaa",
+                    "a"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "aaaa",
+                    "aa"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "abababab",
+                    "aba"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "hello",
+                    "ll"
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    "aaa",
+                    "aa"
+                  ],
+                  "expected": 2
+                }
+              ],
+              "execution": {
+                "status": "pass",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": 0,
+                    "expected": 0
+                  },
+                  {
+                    "pass": true,
+                    "actual": 3,
+                    "expected": 3
+                  },
+                  {
+                    "pass": true,
+                    "actual": 3,
+                    "expected": 3
+                  },
+                  {
+                    "pass": true,
+                    "actual": 3,
+                    "expected": 3
+                  },
+                  {
+                    "pass": true,
+                    "actual": 1,
+                    "expected": 1
+                  },
+                  {
+                    "pass": true,
+                    "actual": 2,
+                    "expected": 2
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "insufficient_evidence"
+        },
+        {
+          "candidate": "canonical",
+          "condition": "adaptive",
+          "candidate_sha256": "6bbf98aacc9fc764b75ea37319fc68fef68453dfd5e67703b6894379a97e039c",
+          "rounds": [
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [\"\", \"a\"],\n      \"expected\": 0\n    },\n    {\n      \"args\": [\"aaa\", \"a\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"aaaa\", \"aa\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"abababab\", \"aba\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"hello\", \"ll\"],\n      \"expected\": 1\n    },\n    {\n      \"args\": [\"aaa\", \"aa\"],\n      \"expected\": 2\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 342,
+                "total_tokens": 483,
+                "completion_tokens": 141,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    "",
+                    "a"
+                  ],
+                  "expected": 0
+                },
+                {
+                  "args": [
+                    "aaa",
+                    "a"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "aaaa",
+                    "aa"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "abababab",
+                    "aba"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "hello",
+                    "ll"
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    "aaa",
+                    "aa"
+                  ],
+                  "expected": 2
+                }
+              ],
+              "execution": {
+                "status": "pass",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": 0,
+                    "expected": 0
+                  },
+                  {
+                    "pass": true,
+                    "actual": 3,
+                    "expected": 3
+                  },
+                  {
+                    "pass": true,
+                    "actual": 3,
+                    "expected": 3
+                  },
+                  {
+                    "pass": true,
+                    "actual": 3,
+                    "expected": 3
+                  },
+                  {
+                    "pass": true,
+                    "actual": 1,
+                    "expected": 1
+                  },
+                  {
+                    "pass": true,
+                    "actual": 2,
+                    "expected": 2
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [\"\", \"a\"],\n      \"expected\": 0\n    },\n    {\n      \"args\": [\"aaa\", \"a\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"aaaa\", \"aa\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"abababab\", \"aba\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"hello\", \"ll\"],\n      \"expected\": 1\n    },\n    {\n      \"args\": [\"aaa\", \"aa\"],\n      \"expected\": 2\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 557,
+                "total_tokens": 694,
+                "completion_tokens": 137,
+                "prompt_tokens_details": {
+                  "cached_tokens": 256
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    "",
+                    "a"
+                  ],
+                  "expected": 0
+                },
+                {
+                  "args": [
+                    "aaa",
+                    "a"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "aaaa",
+                    "aa"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "abababab",
+                    "aba"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "hello",
+                    "ll"
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    "aaa",
+                    "aa"
+                  ],
+                  "expected": 2
+                }
+              ],
+              "execution": {
+                "status": "pass",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": 0,
+                    "expected": 0
+                  },
+                  {
+                    "pass": true,
+                    "actual": 3,
+                    "expected": 3
+                  },
+                  {
+                    "pass": true,
+                    "actual": 3,
+                    "expected": 3
+                  },
+                  {
+                    "pass": true,
+                    "actual": 3,
+                    "expected": 3
+                  },
+                  {
+                    "pass": true,
+                    "actual": 1,
+                    "expected": 1
+                  },
+                  {
+                    "pass": true,
+                    "actual": 2,
+                    "expected": 2
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "insufficient_evidence"
+        },
+        {
+          "candidate": "mutant",
+          "condition": "fixed",
+          "candidate_sha256": "1beeb5600076c7cf6a0e81d514478fd37da7110d096d4dfcc19c51537b862aa0",
+          "rounds": [
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [\"\", \"a\"],\n      \"expected\": 0\n    },\n    {\n      \"args\": [\"aaa\", \"a\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"aaaa\", \"aa\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"abababab\", \"aba\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"hello\", \"ll\"],\n      \"expected\": 1\n    },\n    {\n      \"args\": [\"aaa\", \"aa\"],\n      \"expected\": 2\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 338,
+                "total_tokens": 479,
+                "completion_tokens": 141,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    "",
+                    "a"
+                  ],
+                  "expected": 0
+                },
+                {
+                  "args": [
+                    "aaa",
+                    "a"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "aaaa",
+                    "aa"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "abababab",
+                    "aba"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "hello",
+                    "ll"
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    "aaa",
+                    "aa"
+                  ],
+                  "expected": 2
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": 0,
+                    "expected": 0
+                  },
+                  {
+                    "pass": false,
+                    "actual": 1,
+                    "expected": 3
+                  },
+                  {
+                    "pass": false,
+                    "actual": 1,
+                    "expected": 3
+                  },
+                  {
+                    "pass": false,
+                    "actual": 2,
+                    "expected": 3
+                  },
+                  {
+                    "pass": false,
+                    "actual": 0,
+                    "expected": 1
+                  },
+                  {
+                    "pass": false,
+                    "actual": 0,
+                    "expected": 2
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [\"\", \"a\"],\n      \"expected\": 0\n    },\n    {\n      \"args\": [\"aaa\", \"a\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"aaaa\", \"aa\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"abababab\", \"aba\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"hello\", \"ll\"],\n      \"expected\": 1\n    },\n    {\n      \"args\": [\"aaa\", \"aa\"],\n      \"expected\": 2\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 437,
+                "total_tokens": 578,
+                "completion_tokens": 141,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    "",
+                    "a"
+                  ],
+                  "expected": 0
+                },
+                {
+                  "args": [
+                    "aaa",
+                    "a"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "aaaa",
+                    "aa"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "abababab",
+                    "aba"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "hello",
+                    "ll"
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    "aaa",
+                    "aa"
+                  ],
+                  "expected": 2
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": 0,
+                    "expected": 0
+                  },
+                  {
+                    "pass": false,
+                    "actual": 1,
+                    "expected": 3
+                  },
+                  {
+                    "pass": false,
+                    "actual": 1,
+                    "expected": 3
+                  },
+                  {
+                    "pass": false,
+                    "actual": 2,
+                    "expected": 3
+                  },
+                  {
+                    "pass": false,
+                    "actual": 0,
+                    "expected": 1
+                  },
+                  {
+                    "pass": false,
+                    "actual": 0,
+                    "expected": 2
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        },
+        {
+          "candidate": "mutant",
+          "condition": "adaptive",
+          "candidate_sha256": "1beeb5600076c7cf6a0e81d514478fd37da7110d096d4dfcc19c51537b862aa0",
+          "rounds": [
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [\"\", \"a\"],\n      \"expected\": 0\n    },\n    {\n      \"args\": [\"aaa\", \"a\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"aaaa\", \"aa\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"abababab\", \"aba\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"hello\", \"ll\"],\n      \"expected\": 1\n    },\n    {\n      \"args\": [\"aaa\", \"aa\"],\n      \"expected\": 2\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 338,
+                "total_tokens": 478,
+                "completion_tokens": 140,
+                "prompt_tokens_details": {
+                  "cached_tokens": 256
+                }
+              },
+              "finish_reason": "stop",
+              "execution": {
+                "status": "error",
+                "detail": "invalid test schema"
+              }
+            },
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [\"\", \"a\"],\n      \"expected\": 0\n    },\n    {\n      \"args\": [\"aaa\", \"a\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"aaaa\", \"aa\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"abababab\", \"aba\"],\n      \"expected\": 3\n    },\n    {\n      \"args\": [\"hello\", \"ll\"],\n      \"expected\": 1\n    },\n    {\n      \"args\": [\"aaa\", \"aa\"],\n      \"expected\": 2\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 357,
+                "total_tokens": 498,
+                "completion_tokens": 141,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    "",
+                    "a"
+                  ],
+                  "expected": 0
+                },
+                {
+                  "args": [
+                    "aaa",
+                    "a"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "aaaa",
+                    "aa"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "abababab",
+                    "aba"
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    "hello",
+                    "ll"
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    "aaa",
+                    "aa"
+                  ],
+                  "expected": 2
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": 0,
+                    "expected": 0
+                  },
+                  {
+                    "pass": false,
+                    "actual": 1,
+                    "expected": 3
+                  },
+                  {
+                    "pass": false,
+                    "actual": 1,
+                    "expected": 3
+                  },
+                  {
+                    "pass": false,
+                    "actual": 2,
+                    "expected": 3
+                  },
+                  {
+                    "pass": false,
+                    "actual": 0,
+                    "expected": 1
+                  },
+                  {
+                    "pass": false,
+                    "actual": 0,
+                    "expected": 2
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        }
+      ],
+      "qualification": [
+        {
+          "status": "pass"
+        },
+        {
+          "status": "fail",
+          "exception": "AssertionError"
+        }
+      ]
+    },
+    {
+      "id": "HumanEval/19",
+      "mutation": null,
+      "runs": [],
+      "excluded": "no eligible operator"
+    },
+    {
+      "id": "HumanEval/20",
+      "mutation": "NotEq->Eq",
+      "runs": [
+        {
+          "candidate": "canonical",
+          "condition": "fixed",
+          "candidate_sha256": "c71bef97bdbf6601f7f70f815cead4e2725ffa6d6d85bf1a86e8d37d7d8e99fd",
+          "rounds": [
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0, 2.2]],\n      \"expected\": [2.0, 2.2]\n    },\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0, 2.0]],\n      \"expected\": [2.0, 2.0]\n    },\n    {\n      \"args\": [[5.5, 1.1, 3.3, 2.2]],\n      \"expected\": [1.1, 2.2]\n    },\n    {\n      \"args\": [[10.0, 10.1, 10.2, 10.3]],\n      \"expected\": [10.0, 10.1]\n    },\n    {\n      \"args\": [[-1.0, -2.0, -3.0, -4.0]],\n      \"expected\": [-4.0, -3.0]\n    },\n    {\n      \"args\": [[0.0, 0.0, 1.0]],\n      \"expected\": [0.0, 0.0]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 573,
+                "total_tokens": 856,
+                "completion_tokens": 283,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    2.0,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0,
+                      2.0
+                    ]
+                  ],
+                  "expected": [
+                    2.0,
+                    2.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5.5,
+                      1.1,
+                      3.3,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    1.1,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      10.1,
+                      10.2,
+                      10.3
+                    ]
+                  ],
+                  "expected": [
+                    10.0,
+                    10.1
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -1.0,
+                      -2.0,
+                      -3.0,
+                      -4.0
+                    ]
+                  ],
+                  "expected": [
+                    -4.0,
+                    -3.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [
+                      2.0,
+                      2.2
+                    ],
+                    "expected": [
+                      2.0,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      2.0,
+                      2.0
+                    ],
+                    "expected": [
+                      2.0,
+                      2.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      2.2,
+                      3.3
+                    ],
+                    "expected": [
+                      1.1,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      10.0,
+                      10.1
+                    ],
+                    "expected": [
+                      10.0,
+                      10.1
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      -2.0,
+                      -1.0
+                    ],
+                    "expected": [
+                      -4.0,
+                      -3.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      0.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0, 2.2]],\n      \"expected\": [2.0, 2.2]\n    },\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0, 2.0]],\n      \"expected\": [2.0, 2.0]\n    },\n    {\n      \"args\": [[5.5, 1.1, 3.3, 2.2]],\n      \"expected\": [1.1, 2.2]\n    },\n    {\n      \"args\": [[10.0, 10.1, 10.2, 10.3]],\n      \"expected\": [10.0, 10.1]\n    },\n    {\n      \"args\": [[-1.0, -2.0, -3.0, -4.0]],\n      \"expected\": [-4.0, -3.0]\n    },\n    {\n      \"args\": [[0.0, 0.0, 1.0]],\n      \"expected\": [0.0, 0.0]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 818,
+                "total_tokens": 1101,
+                "completion_tokens": 283,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    2.0,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0,
+                      2.0
+                    ]
+                  ],
+                  "expected": [
+                    2.0,
+                    2.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5.5,
+                      1.1,
+                      3.3,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    1.1,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      10.1,
+                      10.2,
+                      10.3
+                    ]
+                  ],
+                  "expected": [
+                    10.0,
+                    10.1
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -1.0,
+                      -2.0,
+                      -3.0,
+                      -4.0
+                    ]
+                  ],
+                  "expected": [
+                    -4.0,
+                    -3.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [
+                      2.0,
+                      2.2
+                    ],
+                    "expected": [
+                      2.0,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      2.0,
+                      2.0
+                    ],
+                    "expected": [
+                      2.0,
+                      2.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      2.2,
+                      3.3
+                    ],
+                    "expected": [
+                      1.1,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      10.0,
+                      10.1
+                    ],
+                    "expected": [
+                      10.0,
+                      10.1
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      -2.0,
+                      -1.0
+                    ],
+                    "expected": [
+                      -4.0,
+                      -3.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      0.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        },
+        {
+          "candidate": "canonical",
+          "condition": "adaptive",
+          "candidate_sha256": "c71bef97bdbf6601f7f70f815cead4e2725ffa6d6d85bf1a86e8d37d7d8e99fd",
+          "rounds": [
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0, 2.2]],\n      \"expected\": [2.0, 2.2]\n    },\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0, 2.0]],\n      \"expected\": [2.0, 2.0]\n    },\n    {\n      \"args\": [[5.5, 1.1, 3.3, 2.2]],\n      \"expected\": [1.1, 2.2]\n    },\n    {\n      \"args\": [[10.0, 10.1, 10.2, 10.3]],\n      \"expected\": [10.0, 10.1]\n    },\n    {\n      \"args\": [[-1.0, -2.0, -3.0, -4.0]],\n      \"expected\": [-4.0, -3.0]\n    },\n    {\n      \"args\": [[0.0, 0.0, 1.0]],\n      \"expected\": [0.0, 0.0]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 573,
+                "total_tokens": 856,
+                "completion_tokens": 283,
+                "prompt_tokens_details": {
+                  "cached_tokens": 512
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    2.0,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0,
+                      2.0
+                    ]
+                  ],
+                  "expected": [
+                    2.0,
+                    2.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5.5,
+                      1.1,
+                      3.3,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    1.1,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      10.1,
+                      10.2,
+                      10.3
+                    ]
+                  ],
+                  "expected": [
+                    10.0,
+                    10.1
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -1.0,
+                      -2.0,
+                      -3.0,
+                      -4.0
+                    ]
+                  ],
+                  "expected": [
+                    -4.0,
+                    -3.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [
+                      2.0,
+                      2.2
+                    ],
+                    "expected": [
+                      2.0,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      2.0,
+                      2.0
+                    ],
+                    "expected": [
+                      2.0,
+                      2.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      2.2,
+                      3.3
+                    ],
+                    "expected": [
+                      1.1,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      10.0,
+                      10.1
+                    ],
+                    "expected": [
+                      10.0,
+                      10.1
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      -2.0,
+                      -1.0
+                    ],
+                    "expected": [
+                      -4.0,
+                      -3.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      0.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[5.5, 1.1, 3.3, 2.2]],\n      \"expected\": [1.1, 2.2]\n    },\n    {\n      \"args\": [[10.0, 10.1, 10.2, 10.3]],\n      \"expected\": [10.0, 10.1]\n    },\n    {\n      \"args\": [[-1.0, -2.0, -3.0, -4.0]],\n      \"expected\": [-4.0, -3.0]\n    },\n    {\n      \"args\": [[0.0, 0.0, 1.0]],\n      \"expected\": [0.0, 0.0]\n    },\n    {\n      \"args\": [[1.5, 1.6, 2.0, 2.1]],\n      \"expected\": [1.5, 1.6]\n    },\n    {\n      \"args\": [[7.0, 3.0, 9.0, 5.0]],\n      \"expected\": [3.0, 5.0]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 1022,
+                "total_tokens": 1285,
+                "completion_tokens": 263,
+                "prompt_tokens_details": {
+                  "cached_tokens": 512
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      5.5,
+                      1.1,
+                      3.3,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    1.1,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      10.1,
+                      10.2,
+                      10.3
+                    ]
+                  ],
+                  "expected": [
+                    10.0,
+                    10.1
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -1.0,
+                      -2.0,
+                      -3.0,
+                      -4.0
+                    ]
+                  ],
+                  "expected": [
+                    -4.0,
+                    -3.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1.5,
+                      1.6,
+                      2.0,
+                      2.1
+                    ]
+                  ],
+                  "expected": [
+                    1.5,
+                    1.6
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      7.0,
+                      3.0,
+                      9.0,
+                      5.0
+                    ]
+                  ],
+                  "expected": [
+                    3.0,
+                    5.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [
+                      2.2,
+                      3.3
+                    ],
+                    "expected": [
+                      1.1,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      10.0,
+                      10.1
+                    ],
+                    "expected": [
+                      10.0,
+                      10.1
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      -2.0,
+                      -1.0
+                    ],
+                    "expected": [
+                      -4.0,
+                      -3.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      0.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      1.5,
+                      1.6
+                    ],
+                    "expected": [
+                      1.5,
+                      1.6
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      7.0,
+                      9.0
+                    ],
+                    "expected": [
+                      3.0,
+                      5.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        },
+        {
+          "candidate": "mutant",
+          "condition": "fixed",
+          "candidate_sha256": "3a381cb9103ee57607c43b6428370475b6ba691cc333fdcd87df6e6025d7aba1",
+          "rounds": [
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0, 2.2]],\n      \"expected\": [2.0, 2.2]\n    },\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0, 2.0]],\n      \"expected\": [2.0, 2.0]\n    },\n    {\n      \"args\": [[5.5, 1.1, 3.3, 2.2]],\n      \"expected\": [1.1, 2.2]\n    },\n    {\n      \"args\": [[10.0, 10.1, 10.2, 10.3]],\n      \"expected\": [10.0, 10.1]\n    },\n    {\n      \"args\": [[-1.0, -2.0, -3.0, -4.0]],\n      \"expected\": [-4.0, -3.0]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 569,
+                "total_tokens": 815,
+                "completion_tokens": 246,
+                "prompt_tokens_details": {
+                  "cached_tokens": 256
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    2.0,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0,
+                      2.0
+                    ]
+                  ],
+                  "expected": [
+                    2.0,
+                    2.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5.5,
+                      1.1,
+                      3.3,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    1.1,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      10.1,
+                      10.2,
+                      10.3
+                    ]
+                  ],
+                  "expected": [
+                    10.0,
+                    10.1
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -1.0,
+                      -2.0,
+                      -3.0,
+                      -4.0
+                    ]
+                  ],
+                  "expected": [
+                    -4.0,
+                    -3.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [
+                      1.0,
+                      1.0
+                    ],
+                    "expected": [
+                      2.0,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      1.0,
+                      1.0
+                    ],
+                    "expected": [
+                      2.0,
+                      2.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      5.5,
+                      5.5
+                    ],
+                    "expected": [
+                      1.1,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      10.0,
+                      10.0
+                    ],
+                    "expected": [
+                      10.0,
+                      10.1
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      -1.0,
+                      -1.0
+                    ],
+                    "expected": [
+                      -4.0,
+                      -3.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0, 2.2]],\n      \"expected\": [2.0, 2.2]\n    },\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0, 2.0]],\n      \"expected\": [2.0, 2.0]\n    },\n    {\n      \"args\": [[5.5, 1.1, 3.3, 2.2]],\n      \"expected\": [1.1, 2.2]\n    },\n    {\n      \"args\": [[10.0, 10.1, 10.2, 10.3]],\n      \"expected\": [10.0, 10.1]\n    },\n    {\n      \"args\": [[-1.0, -2.0, -3.0, -4.0]],\n      \"expected\": [-4.0, -3.0]\n    },\n    {\n      \"args\": [[0.0, 0.0, 1.0]],\n      \"expected\": [0.0, 0.0]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 783,
+                "total_tokens": 1066,
+                "completion_tokens": 283,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    2.0,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0,
+                      2.0
+                    ]
+                  ],
+                  "expected": [
+                    2.0,
+                    2.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5.5,
+                      1.1,
+                      3.3,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    1.1,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      10.1,
+                      10.2,
+                      10.3
+                    ]
+                  ],
+                  "expected": [
+                    10.0,
+                    10.1
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -1.0,
+                      -2.0,
+                      -3.0,
+                      -4.0
+                    ]
+                  ],
+                  "expected": [
+                    -4.0,
+                    -3.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [
+                      1.0,
+                      1.0
+                    ],
+                    "expected": [
+                      2.0,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      1.0,
+                      1.0
+                    ],
+                    "expected": [
+                      2.0,
+                      2.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      5.5,
+                      5.5
+                    ],
+                    "expected": [
+                      1.1,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      10.0,
+                      10.0
+                    ],
+                    "expected": [
+                      10.0,
+                      10.1
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      -1.0,
+                      -1.0
+                    ],
+                    "expected": [
+                      -4.0,
+                      -3.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      0.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        },
+        {
+          "candidate": "mutant",
+          "condition": "adaptive",
+          "candidate_sha256": "3a381cb9103ee57607c43b6428370475b6ba691cc333fdcd87df6e6025d7aba1",
+          "rounds": [
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0, 2.2]],\n      \"expected\": [2.0, 2.2]\n    },\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0, 2.0]],\n      \"expected\": [2.0, 2.0]\n    },\n    {\n      \"args\": [[5.5, 1.1, 3.3, 2.2]],\n      \"expected\": [1.1, 2.2]\n    },\n    {\n      \"args\": [[10.0, 10.1, 10.2, 10.3]],\n      \"expected\": [10.0, 10.1]\n    },\n    {\n      \"args\": [[-1.0, -2.0, -3.0, -4.0]],\n      \"expected\": [-4.0, -3.0]\n    },\n    {\n      \"args\": [[0.0, 0.0, 1.0]],\n      \"expected\": [0.0, 0.0]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 569,
+                "total_tokens": 852,
+                "completion_tokens": 283,
+                "prompt_tokens_details": {
+                  "cached_tokens": 512
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    2.0,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0,
+                      2.0
+                    ]
+                  ],
+                  "expected": [
+                    2.0,
+                    2.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5.5,
+                      1.1,
+                      3.3,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    1.1,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      10.1,
+                      10.2,
+                      10.3
+                    ]
+                  ],
+                  "expected": [
+                    10.0,
+                    10.1
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -1.0,
+                      -2.0,
+                      -3.0,
+                      -4.0
+                    ]
+                  ],
+                  "expected": [
+                    -4.0,
+                    -3.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [
+                      1.0,
+                      1.0
+                    ],
+                    "expected": [
+                      2.0,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      1.0,
+                      1.0
+                    ],
+                    "expected": [
+                      2.0,
+                      2.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      5.5,
+                      5.5
+                    ],
+                    "expected": [
+                      1.1,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      10.0,
+                      10.0
+                    ],
+                    "expected": [
+                      10.0,
+                      10.1
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      -1.0,
+                      -1.0
+                    ],
+                    "expected": [
+                      -4.0,
+                      -3.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      0.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0, 2.2]],\n      \"expected\": [2.0, 2.2]\n    },\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0, 2.0]],\n      \"expected\": [2.0, 2.0]\n    },\n    {\n      \"args\": [[5.5, 1.1, 3.3, 2.2]],\n      \"expected\": [1.1, 2.2]\n    },\n    {\n      \"args\": [[10.0, 10.1, 10.2, 10.3]],\n      \"expected\": [10.0, 10.1]\n    },\n    {\n      \"args\": [[-1.0, -2.0, -3.0, -4.0]],\n      \"expected\": [-4.0, -3.0]\n    },\n    {\n      \"args\": [[0.0, 0.0, 1.0]],\n      \"expected\": [0.0, 0.0]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 1018,
+                "total_tokens": 1301,
+                "completion_tokens": 283,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    2.0,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0,
+                      2.0
+                    ]
+                  ],
+                  "expected": [
+                    2.0,
+                    2.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5.5,
+                      1.1,
+                      3.3,
+                      2.2
+                    ]
+                  ],
+                  "expected": [
+                    1.1,
+                    2.2
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      10.1,
+                      10.2,
+                      10.3
+                    ]
+                  ],
+                  "expected": [
+                    10.0,
+                    10.1
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -1.0,
+                      -2.0,
+                      -3.0,
+                      -4.0
+                    ]
+                  ],
+                  "expected": [
+                    -4.0,
+                    -3.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [
+                      1.0,
+                      1.0
+                    ],
+                    "expected": [
+                      2.0,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      1.0,
+                      1.0
+                    ],
+                    "expected": [
+                      2.0,
+                      2.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      5.5,
+                      5.5
+                    ],
+                    "expected": [
+                      1.1,
+                      2.2
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      10.0,
+                      10.0
+                    ],
+                    "expected": [
+                      10.0,
+                      10.1
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      -1.0,
+                      -1.0
+                    ],
+                    "expected": [
+                      -4.0,
+                      -3.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      0.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        }
+      ],
+      "qualification": [
+        {
+          "status": "pass"
+        },
+        {
+          "status": "fail",
+          "exception": "AssertionError"
+        }
+      ]
+    },
+    {
+      "id": "HumanEval/21",
+      "mutation": "Div->Mult",
+      "runs": [
+        {
+          "candidate": "canonical",
+          "condition": "fixed",
+          "candidate_sha256": "cac7ded7f3e9aca0cda3d698e8fc039880abedca0d55e1bc97003f36d988c17b",
+          "rounds": [
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0]],\n      \"expected\": [0.0, 0.25, 0.5, 0.75, 1.0]\n    },\n    {\n      \"args\": [[10.0, 20.0]],\n      \"expected\": [0.0, 1.0]\n    },\n    {\n      \"args\": [[5.0, 1.0, 3.0, 2.0, 4.0]],\n      \"expected\": [1.0, 0.0, 0.6, 0.25, 0.8]\n    },\n    {\n      \"args\": [[-5.0, -2.0, 1.0, 4.0]],\n      \"expected\": [0.0, 0.25, 0.5, 1.0]\n    },\n    {\n      \"args\": [[3.5, 3.5, 3.5, 3.5]],\n      \"expected\": [0.0, 0.0, 0.0, 0.0]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 401,
+                "total_tokens": 677,
+                "completion_tokens": 276,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    0.75,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      20.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5.0,
+                      1.0,
+                      3.0,
+                      2.0,
+                      4.0
+                    ]
+                  ],
+                  "expected": [
+                    1.0,
+                    0.0,
+                    0.6,
+                    0.25,
+                    0.8
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -5.0,
+                      -2.0,
+                      1.0,
+                      4.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      3.5,
+                      3.5,
+                      3.5,
+                      3.5
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75,
+                      1.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      0.0,
+                      1.0
+                    ],
+                    "expected": [
+                      0.0,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      1.0,
+                      0.0,
+                      0.5,
+                      0.25,
+                      0.75
+                    ],
+                    "expected": [
+                      1.0,
+                      0.0,
+                      0.6,
+                      0.25,
+                      0.8
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      0.3333333333333333,
+                      0.6666666666666666,
+                      1.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "exception": "ZeroDivisionError"
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0]],\n      \"expected\": [0.0, 0.25, 0.5, 0.75, 1.0]\n    },\n    {\n      \"args\": [[10.0, 20.0]],\n      \"expected\": [0.0, 1.0]\n    },\n    {\n      \"args\": [[5.0, 1.0, 3.0, 2.0, 4.0]],\n      \"expected\": [1.0, 0.0, 0.6, 0.25, 0.8]\n    },\n    {\n      \"args\": [[-5.0, -2.0, 1.0, 4.0]],\n      \"expected\": [0.0, 0.25, 0.5, 1.0]\n    },\n    {\n      \"args\": [[3.5, 3.5, 3.5, 3.5]],\n      \"expected\": [0.0, 0.0, 0.0, 0.0]\n    },\n    {\n      \"args\": [[0.0, 0.0, 1.0, 1.0]],\n      \"expected\": [0.0, 0.0, 1.0, 1.0]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 645,
+                "total_tokens": 973,
+                "completion_tokens": 328,
+                "prompt_tokens_details": {
+                  "cached_tokens": 256
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    0.75,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      20.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5.0,
+                      1.0,
+                      3.0,
+                      2.0,
+                      4.0
+                    ]
+                  ],
+                  "expected": [
+                    1.0,
+                    0.0,
+                    0.6,
+                    0.25,
+                    0.8
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -5.0,
+                      -2.0,
+                      1.0,
+                      4.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      3.5,
+                      3.5,
+                      3.5,
+                      3.5
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      0.0,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0,
+                    1.0,
+                    1.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75,
+                      1.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      0.0,
+                      1.0
+                    ],
+                    "expected": [
+                      0.0,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      1.0,
+                      0.0,
+                      0.5,
+                      0.25,
+                      0.75
+                    ],
+                    "expected": [
+                      1.0,
+                      0.0,
+                      0.6,
+                      0.25,
+                      0.8
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      0.3333333333333333,
+                      0.6666666666666666,
+                      1.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "exception": "ZeroDivisionError"
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      0.0,
+                      0.0,
+                      1.0,
+                      1.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.0,
+                      1.0,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        },
+        {
+          "candidate": "canonical",
+          "condition": "adaptive",
+          "candidate_sha256": "cac7ded7f3e9aca0cda3d698e8fc039880abedca0d55e1bc97003f36d988c17b",
+          "rounds": [
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0]],\n      \"expected\": [0.0, 0.25, 0.5, 0.75, 1.0]\n    },\n    {\n      \"args\": [[10.0, 20.0]],\n      \"expected\": [0.0, 1.0]\n    },\n    {\n      \"args\": [[5.0, 1.0, 3.0, 2.0, 4.0]],\n      \"expected\": [1.0, 0.0, 0.6, 0.25, 0.8]\n    },\n    {\n      \"args\": [[-5.0, -2.0, 1.0, 4.0]],\n      \"expected\": [0.0, 0.25, 0.5, 1.0]\n    },\n    {\n      \"args\": [[3.5, 3.5, 3.5, 3.5]],\n      \"expected\": [0.0, 0.0, 0.0, 0.0]\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 401,
+                "total_tokens": 681,
+                "completion_tokens": 280,
+                "prompt_tokens_details": {
+                  "cached_tokens": 256
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    0.75,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      20.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5.0,
+                      1.0,
+                      3.0,
+                      2.0,
+                      4.0
+                    ]
+                  ],
+                  "expected": [
+                    1.0,
+                    0.0,
+                    0.6,
+                    0.25,
+                    0.8
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -5.0,
+                      -2.0,
+                      1.0,
+                      4.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      3.5,
+                      3.5,
+                      3.5,
+                      3.5
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75,
+                      1.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      0.0,
+                      1.0
+                    ],
+                    "expected": [
+                      0.0,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      1.0,
+                      0.0,
+                      0.5,
+                      0.25,
+                      0.75
+                    ],
+                    "expected": [
+                      1.0,
+                      0.0,
+                      0.6,
+                      0.25,
+                      0.8
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      0.3333333333333333,
+                      0.6666666666666666,
+                      1.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "exception": "ZeroDivisionError"
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0]],\n      \"expected\": [0.0, 0.25, 0.5, 0.75, 1.0]\n    },\n    {\n      \"args\": [[10.0, 20.0]],\n      \"expected\": [0.0, 1.0]\n    },\n    {\n      \"args\": [[3.5, 3.5, 3.5, 3.5]],\n      \"expected\": [0.0, 0.0, 0.0, 0.0]\n    },\n    {\n      \"args\": [[-5.0, -2.0, 1.0, 4.0]],\n      \"expected\": [0.0, 0.25, 0.5, 1.0]\n    },\n    {\n      \"args\": [[100.0, 200.0, 300.0]],\n      \"expected\": [0.0, 0.5, 1.0]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 914,
+                "total_tokens": 1175,
+                "completion_tokens": 261,
+                "prompt_tokens_details": {
+                  "cached_tokens": 512
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    0.75,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      20.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      3.5,
+                      3.5,
+                      3.5,
+                      3.5
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -5.0,
+                      -2.0,
+                      1.0,
+                      4.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      100.0,
+                      200.0,
+                      300.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.5,
+                    1.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75,
+                      1.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      0.0,
+                      1.0
+                    ],
+                    "expected": [
+                      0.0,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "exception": "ZeroDivisionError"
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      0.3333333333333333,
+                      0.6666666666666666,
+                      1.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      0.0,
+                      0.5,
+                      1.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        },
+        {
+          "candidate": "mutant",
+          "condition": "fixed",
+          "candidate_sha256": "4c9287c49bbfbc4b7d0c11fbb733165f98dc6321f179e746a30f7d9ccff6b578",
+          "rounds": [
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0]],\n      \"expected\": [0.0, 0.25, 0.5, 0.75, 1.0]\n    },\n    {\n      \"args\": [[10.0, 20.0]],\n      \"expected\": [0.0, 1.0]\n    },\n    {\n      \"args\": [[5.0, 5.0, 5.0, 5.0]],\n      \"expected\": [0.0, 0.0, 0.0, 0.0]\n    },\n    {\n      \"args\": [[-10.0, -5.0, 0.0, 5.0, 10.0]],\n      \"expected\": [0.0, 0.25, 0.5, 0.75, 1.0]\n    },\n    {\n      \"args\": [[3.5, 1.2, 8.9, 2.1]],\n      \"expected\": [0.25, 0.0, 1.0, 0.125]\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 398,
+                "total_tokens": 683,
+                "completion_tokens": 285,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    0.75,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      20.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5.0,
+                      5.0,
+                      5.0,
+                      5.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -10.0,
+                      -5.0,
+                      0.0,
+                      5.0,
+                      10.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    0.75,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      3.5,
+                      1.2,
+                      8.9,
+                      2.1
+                    ]
+                  ],
+                  "expected": [
+                    0.25,
+                    0.0,
+                    1.0,
+                    0.125
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      4.0,
+                      8.0,
+                      12.0,
+                      16.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      100.0
+                    ],
+                    "expected": [
+                      0.0,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      100.0,
+                      200.0,
+                      300.0,
+                      400.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      17.709999999999997,
+                      0.0,
+                      59.290000000000006,
+                      6.9300000000000015
+                    ],
+                    "expected": [
+                      0.25,
+                      0.0,
+                      1.0,
+                      0.125
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0]],\n      \"expected\": [0.0, 0.25, 0.5, 0.75, 1.0]\n    },\n    {\n      \"args\": [[10.0, 20.0]],\n      \"expected\": [0.0, 1.0]\n    },\n    {\n      \"args\": [[5.0, 5.0, 5.0, 5.0]],\n      \"expected\": [0.0, 0.0, 0.0, 0.0]\n    },\n    {\n      \"args\": [[-10.0, -5.0, 0.0, 5.0, 10.0]],\n      \"expected\": [0.0, 0.25, 0.5, 0.75, 1.0]\n    },\n    {\n      \"args\": [[3.5, 1.2, 8.9, 2.1]],\n      \"expected\": [0.25, 0.0, 1.0, 0.125]\n    },\n    {\n      \"args\": [[100.0, 200.0, 300.0]],\n      \"expected\": [0.0, 0.5, 1.0]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 647,
+                "total_tokens": 976,
+                "completion_tokens": 329,
+                "prompt_tokens_details": {
+                  "cached_tokens": 256
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    0.75,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      20.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5.0,
+                      5.0,
+                      5.0,
+                      5.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -10.0,
+                      -5.0,
+                      0.0,
+                      5.0,
+                      10.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    0.75,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      3.5,
+                      1.2,
+                      8.9,
+                      2.1
+                    ]
+                  ],
+                  "expected": [
+                    0.25,
+                    0.0,
+                    1.0,
+                    0.125
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      100.0,
+                      200.0,
+                      300.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.5,
+                    1.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      4.0,
+                      8.0,
+                      12.0,
+                      16.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      100.0
+                    ],
+                    "expected": [
+                      0.0,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      100.0,
+                      200.0,
+                      300.0,
+                      400.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      17.709999999999997,
+                      0.0,
+                      59.290000000000006,
+                      6.9300000000000015
+                    ],
+                    "expected": [
+                      0.25,
+                      0.0,
+                      1.0,
+                      0.125
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      20000.0,
+                      40000.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        },
+        {
+          "candidate": "mutant",
+          "condition": "adaptive",
+          "candidate_sha256": "4c9287c49bbfbc4b7d0c11fbb733165f98dc6321f179e746a30f7d9ccff6b578",
+          "rounds": [
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0]],\n      \"expected\": [0.0, 0.25, 0.5, 0.75, 1.0]\n    },\n    {\n      \"args\": [[10.0, 20.0]],\n      \"expected\": [0.0, 1.0]\n    },\n    {\n      \"args\": [[5.0, 1.0, 3.0, 2.0, 4.0]],\n      \"expected\": [1.0, 0.0, 0.6, 0.2, 0.8]\n    },\n    {\n      \"args\": [[-5.0, -2.0, 1.0, 4.0]],\n      \"expected\": [0.0, 0.25, 0.5, 0.75]\n    },\n    {\n      \"args\": [[3.5, 3.5, 3.5, 3.5]],\n      \"expected\": [0.0, 0.0, 0.0, 0.0]\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 398,
+                "total_tokens": 678,
+                "completion_tokens": 280,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    0.75,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      20.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5.0,
+                      1.0,
+                      3.0,
+                      2.0,
+                      4.0
+                    ]
+                  ],
+                  "expected": [
+                    1.0,
+                    0.0,
+                    0.6,
+                    0.2,
+                    0.8
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -5.0,
+                      -2.0,
+                      1.0,
+                      4.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    0.75
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      3.5,
+                      3.5,
+                      3.5,
+                      3.5
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      4.0,
+                      8.0,
+                      12.0,
+                      16.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      100.0
+                    ],
+                    "expected": [
+                      0.0,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      16.0,
+                      0.0,
+                      8.0,
+                      4.0,
+                      12.0
+                    ],
+                    "expected": [
+                      1.0,
+                      0.0,
+                      0.6,
+                      0.2,
+                      0.8
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      27.0,
+                      54.0,
+                      81.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1.0, 2.0, 3.0, 4.0, 5.0]],\n      \"expected\": [0.0, 0.25, 0.5, 0.75, 1.0]\n    },\n    {\n      \"args\": [[10.0, 20.0]],\n      \"expected\": [0.0, 1.0]\n    },\n    {\n      \"args\": [[5.0, 1.0, 3.0, 2.0, 4.0]],\n      \"expected\": [1.0, 0.0, 0.6, 0.2, 0.8]\n    },\n    {\n      \"args\": [[-5.0, -2.0, 1.0, 4.0]],\n      \"expected\": [0.0, 0.25, 0.5, 0.75]\n    },\n    {\n      \"args\": [[3.5, 3.5, 3.5, 3.5]],\n      \"expected\": [0.0, 0.0, 0.0, 0.0]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 924,
+                "total_tokens": 1200,
+                "completion_tokens": 276,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1.0,
+                      2.0,
+                      3.0,
+                      4.0,
+                      5.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    0.75,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      10.0,
+                      20.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    1.0
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5.0,
+                      1.0,
+                      3.0,
+                      2.0,
+                      4.0
+                    ]
+                  ],
+                  "expected": [
+                    1.0,
+                    0.0,
+                    0.6,
+                    0.2,
+                    0.8
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      -5.0,
+                      -2.0,
+                      1.0,
+                      4.0
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.25,
+                    0.5,
+                    0.75
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      3.5,
+                      3.5,
+                      3.5,
+                      3.5
+                    ]
+                  ],
+                  "expected": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      4.0,
+                      8.0,
+                      12.0,
+                      16.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      100.0
+                    ],
+                    "expected": [
+                      0.0,
+                      1.0
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      16.0,
+                      0.0,
+                      8.0,
+                      4.0,
+                      12.0
+                    ],
+                    "expected": [
+                      1.0,
+                      0.0,
+                      0.6,
+                      0.2,
+                      0.8
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "actual": [
+                      0.0,
+                      27.0,
+                      54.0,
+                      81.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.25,
+                      0.5,
+                      0.75
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "expected": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        }
+      ],
+      "qualification": [
+        {
+          "status": "pass"
+        },
+        {
+          "status": "fail",
+          "exception": "AssertionError"
+        }
+      ]
+    },
+    {
+      "id": "HumanEval/22",
+      "mutation": null,
+      "runs": [],
+      "excluded": "no eligible operator"
+    },
+    {
+      "id": "HumanEval/23",
+      "mutation": null,
+      "runs": [],
+      "excluded": "no eligible operator"
+    },
+    {
+      "id": "HumanEval/24",
+      "mutation": "Eq->NotEq",
+      "runs": [
+        {
+          "candidate": "canonical",
+          "condition": "fixed",
+          "candidate_sha256": "edc35161ab72014ac56b571a50dd472ffac9413b62e60a1753a155fe0492e16a",
+          "rounds": [
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [15],\n      \"expected\": 5\n    },\n    {\n      \"args\": [17],\n      \"expected\": 1\n    },\n    {\n      \"args\": [12],\n      \"expected\": 6\n    },\n    {\n      \"args\": [100],\n      \"expected\": 50\n    },\n    {\n      \"args\": [2],\n      \"expected\": 1\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 235,
+                "total_tokens": 340,
+                "completion_tokens": 105,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    15
+                  ],
+                  "expected": 5
+                },
+                {
+                  "args": [
+                    17
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    12
+                  ],
+                  "expected": 6
+                },
+                {
+                  "args": [
+                    100
+                  ],
+                  "expected": 50
+                },
+                {
+                  "args": [
+                    2
+                  ],
+                  "expected": 1
+                }
+              ],
+              "execution": {
+                "status": "pass",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": 5,
+                    "expected": 5
+                  },
+                  {
+                    "pass": true,
+                    "actual": 1,
+                    "expected": 1
+                  },
+                  {
+                    "pass": true,
+                    "actual": 6,
+                    "expected": 6
+                  },
+                  {
+                    "pass": true,
+                    "actual": 50,
+                    "expected": 50
+                  },
+                  {
+                    "pass": true,
+                    "actual": 1,
+                    "expected": 1
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [1],\n      \"expected\": 1\n    },\n    {\n      \"args\": [4],\n      \"expected\": 2\n    },\n    {\n      \"args\": [9],\n      \"expected\": 3\n    },\n    {\n      \"args\": [13],\n      \"expected\": 1\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 308,
+                "total_tokens": 394,
+                "completion_tokens": 86,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    1
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    4
+                  ],
+                  "expected": 2
+                },
+                {
+                  "args": [
+                    9
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    13
+                  ],
+                  "expected": 1
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "exception": "ZeroDivisionError"
+                  },
+                  {
+                    "pass": true,
+                    "actual": 2,
+                    "expected": 2
+                  },
+                  {
+                    "pass": true,
+                    "actual": 3,
+                    "expected": 3
+                  },
+                  {
+                    "pass": true,
+                    "actual": 1,
+                    "expected": 1
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        },
+        {
+          "candidate": "canonical",
+          "condition": "adaptive",
+          "candidate_sha256": "edc35161ab72014ac56b571a50dd472ffac9413b62e60a1753a155fe0492e16a",
+          "rounds": [
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [15],\n      \"expected\": 5\n    },\n    {\n      \"args\": [17],\n      \"expected\": 1\n    },\n    {\n      \"args\": [12],\n      \"expected\": 6\n    },\n    {\n      \"args\": [100],\n      \"expected\": 50\n    },\n    {\n      \"args\": [2],\n      \"expected\": 1\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 235,
+                "total_tokens": 340,
+                "completion_tokens": 105,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    15
+                  ],
+                  "expected": 5
+                },
+                {
+                  "args": [
+                    17
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    12
+                  ],
+                  "expected": 6
+                },
+                {
+                  "args": [
+                    100
+                  ],
+                  "expected": 50
+                },
+                {
+                  "args": [
+                    2
+                  ],
+                  "expected": 1
+                }
+              ],
+              "execution": {
+                "status": "pass",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": 5,
+                    "expected": 5
+                  },
+                  {
+                    "pass": true,
+                    "actual": 1,
+                    "expected": 1
+                  },
+                  {
+                    "pass": true,
+                    "actual": 6,
+                    "expected": 6
+                  },
+                  {
+                    "pass": true,
+                    "actual": 50,
+                    "expected": 50
+                  },
+                  {
+                    "pass": true,
+                    "actual": 1,
+                    "expected": 1
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [1],\n      \"expected\": 1\n    },\n    {\n      \"args\": [8],\n      \"expected\": 4\n    },\n    {\n      \"args\": [13],\n      \"expected\": 1\n    },\n    {\n      \"args\": [30],\n      \"expected\": 15\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 409,
+                "total_tokens": 497,
+                "completion_tokens": 88,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    1
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    8
+                  ],
+                  "expected": 4
+                },
+                {
+                  "args": [
+                    13
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    30
+                  ],
+                  "expected": 15
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "exception": "ZeroDivisionError"
+                  },
+                  {
+                    "pass": true,
+                    "actual": 4,
+                    "expected": 4
+                  },
+                  {
+                    "pass": true,
+                    "actual": 1,
+                    "expected": 1
+                  },
+                  {
+                    "pass": true,
+                    "actual": 15,
+                    "expected": 15
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        },
+        {
+          "candidate": "mutant",
+          "condition": "fixed",
+          "candidate_sha256": "7b4b91893d6fc9b2520724ed86e81d39cdf3eef8e7d3d2d1d914a378da560a2e",
+          "rounds": [
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [15],\n      \"expected\": 5\n    },\n    {\n      \"args\": [17],\n      \"expected\": 1\n    },\n    {\n      \"args\": [12],\n      \"expected\": 6\n    },\n    {\n      \"args\": [100],\n      \"expected\": 50\n    },\n    {\n      \"args\": [7],\n      \"expected\": 1\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 232,
+                "total_tokens": 337,
+                "completion_tokens": 105,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    15
+                  ],
+                  "expected": 5
+                },
+                {
+                  "args": [
+                    17
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    12
+                  ],
+                  "expected": 6
+                },
+                {
+                  "args": [
+                    100
+                  ],
+                  "expected": 50
+                },
+                {
+                  "args": [
+                    7
+                  ],
+                  "expected": 1
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": 14,
+                    "expected": 5
+                  },
+                  {
+                    "pass": false,
+                    "actual": 16,
+                    "expected": 1
+                  },
+                  {
+                    "pass": false,
+                    "actual": 11,
+                    "expected": 6
+                  },
+                  {
+                    "pass": false,
+                    "actual": 99,
+                    "expected": 50
+                  },
+                  {
+                    "pass": false,
+                    "actual": 6,
+                    "expected": 1
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [1],\n      \"expected\": 1\n    },\n    {\n      \"args\": [2],\n      \"expected\": 1\n    },\n    {\n      \"args\": [4],\n      \"expected\": 2\n    },\n    {\n      \"args\": [9],\n      \"expected\": 3\n    },\n    {\n      \"args\": [16],\n      \"expected\": 8\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 305,
+                "total_tokens": 409,
+                "completion_tokens": 104,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    1
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    2
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    4
+                  ],
+                  "expected": 2
+                },
+                {
+                  "args": [
+                    9
+                  ],
+                  "expected": 3
+                },
+                {
+                  "args": [
+                    16
+                  ],
+                  "expected": 8
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "exception": "ZeroDivisionError"
+                  },
+                  {
+                    "pass": false,
+                    "exception": "ZeroDivisionError"
+                  },
+                  {
+                    "pass": false,
+                    "actual": 3,
+                    "expected": 2
+                  },
+                  {
+                    "pass": false,
+                    "actual": 8,
+                    "expected": 3
+                  },
+                  {
+                    "pass": false,
+                    "actual": 15,
+                    "expected": 8
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        },
+        {
+          "candidate": "mutant",
+          "condition": "adaptive",
+          "candidate_sha256": "7b4b91893d6fc9b2520724ed86e81d39cdf3eef8e7d3d2d1d914a378da560a2e",
+          "rounds": [
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [15],\n      \"expected\": 5\n    },\n    {\n      \"args\": [17],\n      \"expected\": 1\n    },\n    {\n      \"args\": [12],\n      \"expected\": 6\n    },\n    {\n      \"args\": [100],\n      \"expected\": 50\n    },\n    {\n      \"args\": [2],\n      \"expected\": 1\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 232,
+                "total_tokens": 337,
+                "completion_tokens": 105,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    15
+                  ],
+                  "expected": 5
+                },
+                {
+                  "args": [
+                    17
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    12
+                  ],
+                  "expected": 6
+                },
+                {
+                  "args": [
+                    100
+                  ],
+                  "expected": 50
+                },
+                {
+                  "args": [
+                    2
+                  ],
+                  "expected": 1
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": 14,
+                    "expected": 5
+                  },
+                  {
+                    "pass": false,
+                    "actual": 16,
+                    "expected": 1
+                  },
+                  {
+                    "pass": false,
+                    "actual": 11,
+                    "expected": 6
+                  },
+                  {
+                    "pass": false,
+                    "actual": 99,
+                    "expected": 50
+                  },
+                  {
+                    "pass": false,
+                    "exception": "ZeroDivisionError"
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "```json\n{\n  \"cases\": [\n    {\n      \"args\": [15],\n      \"expected\": 5\n    },\n    {\n      \"args\": [17],\n      \"expected\": 1\n    },\n    {\n      \"args\": [12],\n      \"expected\": 6\n    },\n    {\n      \"args\": [100],\n      \"expected\": 50\n    },\n    {\n      \"args\": [2],\n      \"expected\": 1\n    },\n    {\n      \"args\": [9],\n      \"expected\": 3\n    }\n  ]\n}\n```",
+              "usage": {
+                "prompt_tokens": 405,
+                "total_tokens": 532,
+                "completion_tokens": 127,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    15
+                  ],
+                  "expected": 5
+                },
+                {
+                  "args": [
+                    17
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    12
+                  ],
+                  "expected": 6
+                },
+                {
+                  "args": [
+                    100
+                  ],
+                  "expected": 50
+                },
+                {
+                  "args": [
+                    2
+                  ],
+                  "expected": 1
+                },
+                {
+                  "args": [
+                    9
+                  ],
+                  "expected": 3
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": 14,
+                    "expected": 5
+                  },
+                  {
+                    "pass": false,
+                    "actual": 16,
+                    "expected": 1
+                  },
+                  {
+                    "pass": false,
+                    "actual": 11,
+                    "expected": 6
+                  },
+                  {
+                    "pass": false,
+                    "actual": 99,
+                    "expected": 50
+                  },
+                  {
+                    "pass": false,
+                    "exception": "ZeroDivisionError"
+                  },
+                  {
+                    "pass": false,
+                    "actual": 8,
+                    "expected": 3
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        }
+      ],
+      "qualification": [
+        {
+          "status": "pass"
+        },
+        {
+          "status": "fail",
+          "exception": "AssertionError"
+        }
+      ]
+    },
+    {
+      "id": "HumanEval/25",
+      "mutation": "LtE->Lt",
+      "runs": [],
+      "qualification": [
+        {
+          "status": "pass"
+        },
+        {
+          "status": "pass"
+        }
+      ],
+      "excluded": "mutation not distinguished by scoring tests or infrastructure error"
+    },
+    {
+      "id": "HumanEval/26",
+      "mutation": "LtE->Lt",
+      "runs": [
+        {
+          "candidate": "canonical",
+          "condition": "fixed",
+          "candidate_sha256": "6818cb9723c5321311c0994f593c7536fdb4d4dd98b2740a278a40f272025b5e",
+          "rounds": [
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1, 2, 3, 2, 4]],\n      \"expected\": [1, 3, 4]\n    },\n    {\n      \"args\": [[1, 1, 2, 2, 3, 3]],\n      \"expected\": []\n    },\n    {\n      \"args\": [[1, 2, 3, 4, 5]],\n      \"expected\": [1, 2, 3, 4, 5]\n    },\n    {\n      \"args\": [[1, 1, 1, 1]],\n      \"expected\": []\n    },\n    {\n      \"args\": [[]],\n      \"expected\": []\n    },\n    {\n      \"args\": [[5, 4, 3, 2, 1, 2, 3, 4, 5]],\n      \"expected\": [1]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 312,
+                "total_tokens": 512,
+                "completion_tokens": 200,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      2,
+                      4
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    3,
+                    4
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      1,
+                      2,
+                      2,
+                      3,
+                      3
+                    ]
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    []
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      5,
+                      4,
+                      3,
+                      2,
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  ],
+                  "expected": [
+                    1
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "pass",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": [
+                      1,
+                      3,
+                      4
+                    ],
+                    "expected": [
+                      1,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ],
+                    "expected": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      1
+                    ],
+                    "expected": [
+                      1
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1, 2, 3, 2, 4]],\n      \"expected\": [1, 3, 4]\n    },\n    {\n      \"args\": [[1, 1, 2, 2, 3, 3]],\n      \"expected\": []\n    },\n    {\n      \"args\": [[1, 2, 3, 4, 5]],\n      \"expected\": [1, 2, 3, 4, 5]\n    },\n    {\n      \"args\": [[1, 1, 1, 1]],\n      \"expected\": []\n    },\n    {\n      \"args\": [[]],\n      \"expected\": []\n    },\n    {\n      \"args\": [[5, 4, 3, 2, 1, 2, 3, 4, 5]],\n      \"expected\": [1]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 477,
+                "total_tokens": 677,
+                "completion_tokens": 200,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      2,
+                      4
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    3,
+                    4
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      1,
+                      2,
+                      2,
+                      3,
+                      3
+                    ]
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    []
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      5,
+                      4,
+                      3,
+                      2,
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  ],
+                  "expected": [
+                    1
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "pass",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": [
+                      1,
+                      3,
+                      4
+                    ],
+                    "expected": [
+                      1,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ],
+                    "expected": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      1
+                    ],
+                    "expected": [
+                      1
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "insufficient_evidence"
+        },
+        {
+          "candidate": "canonical",
+          "condition": "adaptive",
+          "candidate_sha256": "6818cb9723c5321311c0994f593c7536fdb4d4dd98b2740a278a40f272025b5e",
+          "rounds": [
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1, 2, 3, 2, 4]],\n      \"expected\": [1, 3, 4]\n    },\n    {\n      \"args\": [[1, 1, 2, 2, 3, 3]],\n      \"expected\": []\n    },\n    {\n      \"args\": [[1, 2, 3, 4, 5]],\n      \"expected\": [1, 2, 3, 4, 5]\n    },\n    {\n      \"args\": [[1]],\n      \"expected\": [1]\n    },\n    {\n      \"args\": [],\n      \"expected\": []\n    },\n    {\n      \"args\": [[1, 1, 1, 2, 2, 3]],\n      \"expected\": [3]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 312,
+                "total_tokens": 495,
+                "completion_tokens": 183,
+                "prompt_tokens_details": {
+                  "cached_tokens": 256
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      2,
+                      4
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    3,
+                    4
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      1,
+                      2,
+                      2,
+                      3,
+                      3
+                    ]
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1
+                    ]
+                  ],
+                  "expected": [
+                    1
+                  ]
+                },
+                {
+                  "args": [],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      1,
+                      1,
+                      2,
+                      2,
+                      3
+                    ]
+                  ],
+                  "expected": [
+                    3
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": [
+                      1,
+                      3,
+                      4
+                    ],
+                    "expected": [
+                      1,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ],
+                    "expected": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      1
+                    ],
+                    "expected": [
+                      1
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "exception": "TypeError"
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      3
+                    ],
+                    "expected": [
+                      3
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1, 2, 3, 2, 4]],\n      \"expected\": [1, 3, 4]\n    },\n    {\n      \"args\": [[1, 1, 2, 2, 3, 3]],\n      \"expected\": []\n    },\n    {\n      \"args\": [[1, 2, 3, 4, 5]],\n      \"expected\": [1, 2, 3, 4, 5]\n    },\n    {\n      \"args\": [[1]],\n      \"expected\": [1]\n    },\n    {\n      \"args\": [],\n      \"expected\": []\n    },\n    {\n      \"args\": [[1, 1, 1, 2, 2, 3]],\n      \"expected\": [3]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 602,
+                "total_tokens": 785,
+                "completion_tokens": 183,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      2,
+                      4
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    3,
+                    4
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      1,
+                      2,
+                      2,
+                      3,
+                      3
+                    ]
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1
+                    ]
+                  ],
+                  "expected": [
+                    1
+                  ]
+                },
+                {
+                  "args": [],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      1,
+                      1,
+                      2,
+                      2,
+                      3
+                    ]
+                  ],
+                  "expected": [
+                    3
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": true,
+                    "actual": [
+                      1,
+                      3,
+                      4
+                    ],
+                    "expected": [
+                      1,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ],
+                    "expected": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      1
+                    ],
+                    "expected": [
+                      1
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "exception": "TypeError"
+                  },
+                  {
+                    "pass": true,
+                    "actual": [
+                      3
+                    ],
+                    "expected": [
+                      3
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        },
+        {
+          "candidate": "mutant",
+          "condition": "fixed",
+          "candidate_sha256": "a9c0f79905658b1de4e3905a8a1e648888c32e10286f4a833954eef2bf216245",
+          "rounds": [
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1, 2, 3, 2, 4]],\n      \"expected\": [1, 3, 4]\n    },\n    {\n      \"args\": [[1, 1, 1, 1]],\n      \"expected\": []\n    },\n    {\n      \"args\": [[1, 2, 3, 4]],\n      \"expected\": [1, 2, 3, 4]\n    },\n    {\n      \"args\": [],\n      \"expected\": []\n    },\n    {\n      \"args\": [[1, 2, 1, 3, 2, 4]],\n      \"expected\": [3, 4]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 309,
+                "total_tokens": 465,
+                "completion_tokens": 156,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      2,
+                      4
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    3,
+                    4
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      4
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ]
+                },
+                {
+                  "args": [],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      1,
+                      3,
+                      2,
+                      4
+                    ]
+                  ],
+                  "expected": [
+                    3,
+                    4
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [],
+                    "expected": [
+                      1,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": false,
+                    "actual": [],
+                    "expected": [
+                      1,
+                      2,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "exception": "TypeError"
+                  },
+                  {
+                    "pass": false,
+                    "actual": [],
+                    "expected": [
+                      3,
+                      4
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\"cases\": [\n    {\"args\": [[1, 2, 3, 2, 4]], \"expected\": [1, 3, 4]},\n    {\"args\": [[1, 1, 1, 1]], \"expected\": []},\n    {\"args\": [[1, 2, 3, 4]], \"expected\": [1, 2, 3, 4]},\n    {\"args\": [], \"expected\": []},\n    {\"args\": [[1, 2, 1, 3, 2, 4]], \"expected\": [3, 4]},\n    {\"args\": [[5, 5, 3, 3, 1, 1]], \"expected\": []}\n]}",
+              "usage": {
+                "prompt_tokens": 435,
+                "total_tokens": 591,
+                "completion_tokens": 156,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      2,
+                      4
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    3,
+                    4
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      4
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ]
+                },
+                {
+                  "args": [],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      1,
+                      3,
+                      2,
+                      4
+                    ]
+                  ],
+                  "expected": [
+                    3,
+                    4
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      5,
+                      5,
+                      3,
+                      3,
+                      1,
+                      1
+                    ]
+                  ],
+                  "expected": []
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [],
+                    "expected": [
+                      1,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": false,
+                    "actual": [],
+                    "expected": [
+                      1,
+                      2,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "pass": false,
+                    "exception": "TypeError"
+                  },
+                  {
+                    "pass": false,
+                    "actual": [],
+                    "expected": [
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        },
+        {
+          "candidate": "mutant",
+          "condition": "adaptive",
+          "candidate_sha256": "a9c0f79905658b1de4e3905a8a1e648888c32e10286f4a833954eef2bf216245",
+          "rounds": [
+            {
+              "raw_model_content": "{\"cases\":[{\"args\":[[1, 2, 3, 2, 4]],\"expected\":[1, 3, 4]},{\"args\":[[1, 1, 2, 2, 3, 3]],\"expected\":[]},{\"args\":[[1, 2, 3, 4, 5]],\"expected\":[1, 2, 3, 4, 5]},{\"args\":[[1, 1, 1, 1]],\"expected\":[]},{\"args\":[[]],\"expected\":[]},{\"args\":[[5, 3, 5, 1, 3, 2]],\"expected\":[1, 2]}]}",
+              "usage": {
+                "prompt_tokens": 309,
+                "total_tokens": 457,
+                "completion_tokens": 148,
+                "prompt_tokens_details": {
+                  "cached_tokens": 256
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      2,
+                      4
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    3,
+                    4
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      1,
+                      2,
+                      2,
+                      3,
+                      3
+                    ]
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    []
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      5,
+                      3,
+                      5,
+                      1,
+                      3,
+                      2
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    2
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [],
+                    "expected": [
+                      1,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": false,
+                    "actual": [],
+                    "expected": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": false,
+                    "actual": [],
+                    "expected": [
+                      1,
+                      2
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "raw_model_content": "{\n  \"cases\": [\n    {\n      \"args\": [[1, 2, 3, 2, 4]],\n      \"expected\": [1, 3, 4]\n    },\n    {\n      \"args\": [[1, 1, 2, 2, 3, 3]],\n      \"expected\": []\n    },\n    {\n      \"args\": [[1, 2, 3, 4, 5]],\n      \"expected\": [1, 2, 3, 4, 5]\n    },\n    {\n      \"args\": [[1, 1, 1, 1]],\n      \"expected\": []\n    },\n    {\n      \"args\": [[]],\n      \"expected\": []\n    },\n    {\n      \"args\": [[5, 3, 5, 1, 3, 2]],\n      \"expected\": [1, 2]\n    }\n  ]\n}",
+              "usage": {
+                "prompt_tokens": 590,
+                "total_tokens": 784,
+                "completion_tokens": 194,
+                "prompt_tokens_details": {
+                  "cached_tokens": 0
+                }
+              },
+              "finish_reason": "stop",
+              "cases": [
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      2,
+                      4
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    3,
+                    4
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      1,
+                      2,
+                      2,
+                      3,
+                      3
+                    ]
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ]
+                },
+                {
+                  "args": [
+                    [
+                      1,
+                      1,
+                      1,
+                      1
+                    ]
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    []
+                  ],
+                  "expected": []
+                },
+                {
+                  "args": [
+                    [
+                      5,
+                      3,
+                      5,
+                      1,
+                      3,
+                      2
+                    ]
+                  ],
+                  "expected": [
+                    1,
+                    2
+                  ]
+                }
+              ],
+              "execution": {
+                "status": "fail",
+                "cases": [
+                  {
+                    "pass": false,
+                    "actual": [],
+                    "expected": [
+                      1,
+                      3,
+                      4
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": false,
+                    "actual": [],
+                    "expected": [
+                      1,
+                      2,
+                      3,
+                      4,
+                      5
+                    ]
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": true,
+                    "actual": [],
+                    "expected": []
+                  },
+                  {
+                    "pass": false,
+                    "actual": [],
+                    "expected": [
+                      1,
+                      2
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "verdict": "reject"
+        }
+      ],
+      "qualification": [
+        {
+          "status": "pass"
+        },
+        {
+          "status": "fail",
+          "exception": "AssertionError"
+        }
+      ]
+    },
+    {
+      "id": "HumanEval/27",
+      "mutation": null,
+      "runs": [],
+      "excluded": "no eligible operator"
+    },
+    {
+      "id": "HumanEval/28",
+      "mutation": null,
+      "runs": [],
+      "excluded": "no eligible operator"
+    },
+    {
+      "id": "HumanEval/29",
+      "mutation": null,
+      "runs": [],
+      "excluded": "no eligible operator"
+    }
+  ],
+  "scores": {
+    "fixed": {
+      "count": 12,
+      "correct_count": 6,
+      "wrong_count": 6,
+      "detected": 6,
+      "false_rejections": 3,
+      "detection_rate": 1.0,
+      "false_rejection_rate": 0.5,
+      "detection_wilson95": [
+        0.6096657120978346,
+        1.0
+      ],
+      "false_rejection_wilson95": [
+        0.1876163064826506,
+        0.8123836935173494
+      ],
+      "verdict_counts": {
+        "insufficient_evidence": 3,
+        "reject": 9
+      },
+      "interval_scope": "Descriptive binomial intervals; not repository-clustered inference."
+    },
+    "adaptive": {
+      "count": 12,
+      "correct_count": 6,
+      "wrong_count": 6,
+      "detected": 6,
+      "false_rejections": 4,
+      "detection_rate": 1.0,
+      "false_rejection_rate": 0.6666666666666666,
+      "detection_wilson95": [
+        0.6096657120978346,
+        1.0
+      ],
+      "false_rejection_wilson95": [
+        0.299993315138392,
+        0.9032285888942195
+      ],
+      "verdict_counts": {
+        "insufficient_evidence": 2,
+        "reject": 10
+      },
+      "interval_scope": "Descriptive binomial intervals; not repository-clustered inference."
+    }
+  },
+  "included_tasks": 6,
+  "excluded_tasks": 9
+}

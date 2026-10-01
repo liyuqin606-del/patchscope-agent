@@ -1,0 +1,63 @@
+{
+  "source": "live-behavioral-graph.json",
+  "original_verdict": "reject",
+  "current_verdict": "review_required",
+  "evidence": [
+    {
+      "tool": "test",
+      "check": "generated_cases",
+      "status": "fail",
+      "cases": [
+        {
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "pass": false,
+          "actual": false,
+          "expected": true
+        }
+      ],
+      "scope": "model-proposed expected values; not an oracle"
+    },
+    {
+      "tool": "retrieve",
+      "citations": [
+        {
+          "path": "contract.py",
+          "start": 1,
+          "end": 11,
+          "text": "from typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"",
+          "sha256": "00b2e074e127a6a9d1376278bef732933760ab706057ec755a8c2642217b557a",
+          "score": 0.03278688524590164
+        }
+      ]
+    },
+    {
+      "tool": "syntax",
+      "check": "python_syntax",
+      "status": "pass",
+      "scope": "syntax only"
+    },
+    {
+      "tool": "test",
+      "check": "generated_cases",
+      "status": "fail",
+      "cases": [
+        {
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "pass": false,
+          "actual": false,
+          "expected": true
+        }
+      ],
+      "scope": "model-proposed expected values; not an oracle"
+    }
+  ],
+  "paid_calls": 0
+}

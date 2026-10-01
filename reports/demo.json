@@ -1,0 +1,43 @@
+{
+  "task": "Verify the percentage discount formula and boundary behavior",
+  "candidate": "def discounted_price(price, percent):\n    # Deliberate semantic bug: parses successfully but applies the wrong formula.\n    return price * percent / 100\n",
+  "steps": 2,
+  "budget": 4,
+  "action": {
+    "tool": "finish",
+    "query": "",
+    "rationale": "Report the available evidence and its limits"
+  },
+  "evidence": [
+    {
+      "tool": "retrieve",
+      "citations": [
+        {
+          "path": "pricing.py",
+          "start": 1,
+          "end": 5,
+          "text": "def discounted_price(price, percent):\n    \"\"\"Return price after a percentage discount in [0, 100].\"\"\"\n    if not 0 <= percent <= 100:\n        raise ValueError('percent outside [0, 100]')\n    return price * (1 - percent / 100)",
+          "sha256": "813e51fea2ca00647f52da6f8fa01d4d6a782f1f9efc0eae2224bfe1c3d6b24c",
+          "score": 0.03278688524590164
+        }
+      ]
+    },
+    {
+      "tool": "syntax",
+      "check": "python_syntax",
+      "status": "pass",
+      "scope": "syntax only"
+    }
+  ],
+  "verdict": "insufficient_evidence",
+  "mode": "deterministic_demo",
+  "thread_id": "33c064ae2e4f474db59678d24fc5c6b8",
+  "candidate_sha256": "0bc3c946bc46e1c8662f86412d6be3a3b190dc94c7dda1430ceb69c0b44801d9",
+  "repository_manifest": [
+    [
+      "pricing.py",
+      "813e51fea2ca00647f52da6f8fa01d4d6a782f1f9efc0eae2224bfe1c3d6b24c"
+    ]
+  ],
+  "limitation": "Static inspection only; no behavioral correctness or RSI improvement established."
+}
